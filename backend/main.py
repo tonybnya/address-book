@@ -30,8 +30,9 @@ def create_contact():
     new_contact = Contact(first_name=first_name, last_name=last_name, email=email, role=role, phone_number=phone_number, category=category, bio=bio)
 
     try:
-        # add the new contact to the database
+        # add the new contact to the staging area
         db.session.add(new_contact)
+        # write the new contact in the database
         db.session.commit()
     except Exception as e:
         return jsonify({"message", str(e)}), 400

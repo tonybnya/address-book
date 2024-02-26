@@ -58,6 +58,32 @@ def get_contacts():
     return jsonify({"contacts": json_contacts})
 
 
+@app.route('/update_contact/<int:contact_id>', methods=['PUT'])
+def update_contact(contact_id: int):
+    """
+    Endpoint to update an existing contact by its id
+
+    :return json: a JSON response containing a message about the success or the failure of the operation
+    """
+    contact = Contact.query.get(contact_id)
+
+    if not contact:
+        return jsonify({"message": "Contact not found!"}), 404
+
+    data = request.json
+    contact.first_name = data.get("firstName", contact.first_name)
+    contact.last_name = data.get("lastName", contact.last_name)
+    contact.email = data.get("email", contact.email)
+    contact.role = data.get("role", contact.role)
+    contact.phone_number = data.get("phoneNumber", contact.phone_number)
+    contact.category = data.get("category", contact.category)
+    contact.bio = data.get("bio", contact.bio)
+
+    db.session.commit()
+
+    return jsonify({"message": "Contact successfully updated!"}), 200
+
+
 if __name__ == "__main__":
     # check the context to avoid creating a new database if
     # there is already an existing one

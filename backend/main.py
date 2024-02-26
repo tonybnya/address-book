@@ -84,6 +84,24 @@ def update_contact(contact_id: int):
     return jsonify({"message": "Contact successfully updated!"}), 200
 
 
+@app.route('/delete_contact/<int:contact_id>', methods=["DELETE"])
+def delete_contact(contact_id: int):
+    """
+    Endpoint to delete an existing contact by its id
+
+    :return json: a JSON response containing a message about the success or the failure of the operation
+    """
+    contact = Contact.query.get(contact_id)
+
+    if not contact:
+        return jsonify({"message": "Contact not found!"}), 404
+
+    db.session.delete(contact)
+    db.session.commit()
+
+    return jsonify({"message": "Contact successfully deleted!"}), 200
+
+
 if __name__ == "__main__":
     # check the context to avoid creating a new database if
     # there is already an existing one

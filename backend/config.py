@@ -6,6 +6,7 @@ from flask import Flask
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 
+
 # create an instance of a Flask application
 app: Flask = Flask(__name__)
 # enable Cross-Origin Resource Sharing (CORS)

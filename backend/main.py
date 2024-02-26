@@ -35,7 +35,11 @@ def create_contact():
         # write the new contact in the database
         db.session.commit()
     except Exception as e:
+        # catching an eventually error and return it
         return jsonify({"message", str(e)}), 400
+
+    # if no error occurs, notify the user abou the success of the operation
+    return jsonify({"message": "Contact successfully created!"}), 201
 
 
 @app.route('/contacts', methods=['GET'])
@@ -55,6 +59,8 @@ def get_contacts():
 
 
 if __name__ == "__main__":
+    # check the context to avoid creating a new database if
+    # there is already an existing one
     with app.app_context():
         db.create_all()
 

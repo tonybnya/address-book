@@ -1,6 +1,6 @@
-# Address Book Web App
+# Contact List Web App
 
-This is a simple web app for an Address Book.
+This is a simple web app for a Contact List.
 
 I assume you already have `python3` and `pip3` installed on your system.
 

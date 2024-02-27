@@ -2,14 +2,22 @@ nav {
   padding: 10px;
 }
 
-.navbar {
+.navbar,
+.brand {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
+.navbar {
+  justify-content: space-between;
+}
+
+.brand {
+  gap: 1rem;
+}
+
 .logo {
-  width: 5%;
+  width: 4%;
   cursor: pointer;
 }
 

@@ -8,9 +8,9 @@ function ErrorPage() {
     <div>
       <img src={error} alt="error 404 image" />
       <h2>Error, the page is not found...</h2>
-      <p>
-        <Link to="/" className='link'>Return to the homepage</Link>
-      </p>
+      <Link to="/" className='link'>
+        <p>Return to the homepage</p>
+      </Link>
     </div>
   )
 }

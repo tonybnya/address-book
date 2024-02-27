@@ -9,7 +9,7 @@ function Navbar() {
       <div className="navbar">
         <div className="brand">
           <img className="logo" src={logo} alt="logo" />
-          <h1 className="title">Contact List</h1>
+          <h1 className="title">contacto</h1>
         </div>
         <Search />
       </div>

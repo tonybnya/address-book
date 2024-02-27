@@ -1,0 +1,42 @@
+.hero {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  width: 30vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro {
+  margin: 10px auto;
+  text-align: justify;
+  font-weight: 500;
+}
+
+span {
+  color: #c33329;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: #c33329;
+  color: #fff;
+  display: inline-block;
+  border-radius: 100%;
+  width: 4.5em;
+  height: 4.5em;
+  line-height: 4.5em;
+  text-align: center;
+  font-size: 1.25em;
+  font-weight: 300;
+  padding: 0;
+}
+
+.btn:hover {
+  scale: 1.1;
+  background-color: #000;
+  font-weight: 400;
+}

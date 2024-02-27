@@ -1,28 +1,64 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from './pages/Layout';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+} from "react-router-dom";
+import Navbar from './components/Navbar'
 import LandingPage from './pages/LandingPage'
 import ContactsPage from './pages/ContactsPage'
 import SingleContactPage from './pages/SingleContactPage'
-import NotFoundPage from './pages/NotFoundPage'
+import ErrorPage from './pages/ErrorPage'
+import Footer from './components/Footer'
+
+const Layout = () => {
+  return (
+    <div>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </div>
+  )
+}
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <LandingPage />,
+      },
+      {
+        path: "/contacts",
+        element: <ContactsPage />,
+      },
+      {
+        path: "/single-contact/:id",
+        element: <SingleContactPage />,
+      },
+    ],
+  },
+  {
+    path: '/',
+    element: <LandingPage />
+  },
+  {
+    path: 'contacts',
+    element: <ContactsPage />
+  },
+  {
+    path: '*',
+    element: <ErrorPage />
+  }
+])
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Layout />}>
-            <Route index element={<LandingPage />} />
-            <Route path='landing' element={<LandingPage />} />
-            <Route path='landing-page' element={<LandingPage />} />
-            <Route path='home' element={<LandingPage />} />
-            <Route path='contacts' element={<ContactsPage />} />
-            <Route path='single-contact' element={<SingleContactPage />} />
-            <Route path='*' element={<NotFoundPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </>
+    <div>
+      <RouterProvider router={router} />
+    </div>
   )
 }
 

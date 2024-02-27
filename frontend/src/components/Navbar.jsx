@@ -1,18 +1,15 @@
+import React from 'react'
 import logo from '../assets/logo.png'
-import Search from './Search'
-import { NavLink } from 'react-router-dom'
+import '../styles/navbar.css'
 
 function Navbar() {
   return (
     <nav>
-      <div className="container">
-        <NavLink to="/" className="navbar">
-          <img src={logo} alt="logo" />
-        </NavLink>
-        <h1>Navbar</h1>
-
-        <Search />
+      <div className="navbar">
+        <img className="logo" src={logo} alt="logo" />
+        <h1 className="title">Contact List</h1>
       </div>
+      <hr />
     </nav>
   )
 }

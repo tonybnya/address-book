@@ -1,0 +1,29 @@
+nav {
+  padding: 10px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 5%;
+  cursor: pointer;
+}
+
+.logo:hover {
+  filter: invert(18%) sepia(82%) saturate(4658%) hue-rotate(355deg)
+    brightness(109%) contrast(112%);
+  scale: 1.1;
+  transform: rotate(360deg);
+}
+
+.title {
+  color: #c33329;
+}
+
+hr {
+  margin-top: 10px;
+}

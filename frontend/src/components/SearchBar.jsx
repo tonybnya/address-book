@@ -6,7 +6,7 @@ function SearchBar() {
     <div className='search-container'>
       <form action="">
         <input type="text" placeholder="Search.." name="search" />
-        <button type="submit" className='btn-search'><i class="fa fa-search"></i></button>
+        <button type="submit" className='btn-search'><i className="fa fa-search"></i></button>
       </form>
     </div>
   )

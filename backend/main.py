@@ -23,7 +23,7 @@ def create_contact() -> Tuple[str, int]:
     role: str = request.json.get('role')
     phone_number: str = request.json.get('phoneNumber')
     category: str = request.json.get('category')
-    bio: str = request.json.get('category')
+    bio: str = request.json.get('bio')
 
     # check if all the required fields are provided
     if not all([first_name, last_name, email, role, phone_number, category, bio]):

@@ -2,7 +2,9 @@ import React from 'react'
 
 function Filter() {
   return (
-    <div>Filter</div>
+    <div>
+      <h1>Filter</h1>
+    </div>
   )
 }
 

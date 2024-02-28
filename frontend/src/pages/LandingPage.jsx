@@ -6,11 +6,11 @@ function LandingPage() {
   return (
     <div className='hero'>
       <div className="content">
-        <h1>Contact List</h1>
+        <h1>A Contact List Web App</h1>
         <hr />
         <hr />
         <p className='intro'>
-        This <span>Contact List</span> web application is a straightforward tool designed to help users manage their contacts digitally. It provides a user-friendly interface for viewing, adding, editing, and deleting contacts.
+          <span className='name'>Contactio</span> - a web application as a straightforward tool designed to help users manage their contacts digitally. It provides a user-friendly interface for viewing, adding, editing, and deleting contacts.
         </p>
         <Link to='contacts' className='btn'>
           Start

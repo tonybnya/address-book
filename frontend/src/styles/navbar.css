@@ -13,7 +13,9 @@ nav {
 }
 
 .brand {
+  text-decoration: none;
   gap: 1rem;
+  margin-left: 16px;
 }
 
 .logo {

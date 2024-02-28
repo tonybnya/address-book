@@ -1,0 +1,23 @@
+#content {
+  background-color: #e9eaec;
+  margin: 0 10px;
+  border-radius: 5px;
+}
+
+.contacts-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.banner {
+  margin: 20px 0;
+}
+
+#contacts {
+  display: flex;
+  justify-content: flex-start;
+  gap: 150px;
+  margin-bottom: 20px;
+}

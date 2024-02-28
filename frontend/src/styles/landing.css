@@ -16,8 +16,9 @@
   font-weight: 500;
 }
 
-span {
+.name {
   color: #c33329;
+  font-weight: 900;
 }
 
 .btn {

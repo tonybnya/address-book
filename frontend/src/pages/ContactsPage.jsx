@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SearchBar from '../components/SearchBar'
 import Filter from '../components/Filter'
+import Button from '../components/Button'
 import '../styles/contactspage.css'
 
 function ContactsPage() {
@@ -62,6 +63,7 @@ function ContactsPage() {
           </div>
         </div>
       </div>
+      <Button text='+' url='/add_contact' className='add-btn' />
     </div>
   )
 }3

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import '../styles/landing.css'
+import Button from '../components/Button'
+import '../styles/button.css'
 
 function LandingPage() {
   return (
@@ -12,9 +12,7 @@ function LandingPage() {
         <p className='intro'>
           <span className='name'>Contactio</span> - a web application as a straightforward tool designed to help users manage their contacts digitally. It provides a user-friendly interface for viewing, adding, editing, and deleting contacts.
         </p>
-        <Link to='contacts' className='btn'>
-          Start
-        </Link>
+        <Button text='Start' url='/contacts' />
       </div>
     </div>
   )

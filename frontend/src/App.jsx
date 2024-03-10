@@ -5,6 +5,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import Navbar from './components/Navbar'
+import AddContactPage from './pages/AddContactPage';
 import LandingPage from './pages/LandingPage'
 import ContactsPage from './pages/ContactsPage'
 import SingleContactPage from './pages/SingleContactPage'
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/single-contact/:id",
         element: <SingleContactPage />,
+      },
+      {
+        path: "/add_contact",
+        element: <AddContactPage />,
       },
     ],
   },

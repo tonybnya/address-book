@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import SearchBar from '../components/SearchBar'
 import Filter from '../components/Filter'
 import Button from '../components/Button'
 import '../styles/contactspage.css'
 
 function ContactsPage() {
-  const [contacts, setContacts] = useState([]);
+  const [ contacts, setContacts ] = useState([]);
 
   useEffect(() => {
     fetchContacts()
@@ -54,7 +54,7 @@ function ContactsPage() {
                 </div>
                 <div className="tag"><span className="category">{contact.category}</span></div>
                 <div className="controls">
-                  <button className="update-btn"onClick={() => updateContact(contact)}>Update</button>
+                  <button className="update-btn"onClick={() => updateContact(contact.id)}>Update</button>
                   <button className="delete-btn"onClick={() => onDelete(contact.id)}>Delete</button>
                   <button className="show-btn"onClick={() => showContact(contact.id)}>More</button>
                 </div>
@@ -66,6 +66,6 @@ function ContactsPage() {
       <Button text='+' url='/add_contact' className='add-btn' />
     </div>
   )
-}3
+}
 
 export default ContactsPage

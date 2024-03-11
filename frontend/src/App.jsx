@@ -6,10 +6,10 @@ import {
 } from "react-router-dom";
 import Navbar from './components/Navbar'
 import AddContactPage from './pages/AddContactPage';
-import LandingPage from './pages/LandingPage'
 import ContactsPage from './pages/ContactsPage'
-import SingleContactPage from './pages/SingleContactPage'
 import ErrorPage from './pages/ErrorPage'
+import LandingPage from './pages/LandingPage'
+import SingleContactPage from './pages/SingleContactPage'
 import Footer from './components/Footer'
 
 const Layout = () => {
@@ -61,9 +61,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div>
+    <>
       <RouterProvider router={router} />
-    </div>
+    </>
   )
 }
 

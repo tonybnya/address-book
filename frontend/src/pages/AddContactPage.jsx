@@ -1,39 +1,82 @@
-import React from 'react'
+import { useState } from 'react'
 import '../styles/addcontact.css'
 
 function AddContactPage() {
-  return (
-    <div>
-        <form action="" method="post">
-          <fieldset>
-              <label htmlFor="first-name">First Name:</label>
-              <input type="text" name="first-name" id="firstName" required />
-              <label htmlFor="last-name">Last Name:</label>
-              <input type="text" name="last-name" id="lastName" required />
-              <label htmlFor="email">Email:</label>
-              <input type="email" name="email" id="email" />
-              <label htmlFor="role">Job/Role:</label>
-              <input type="text" name="role" id="role" />
-              <label htmlFor="phone-number">Phone Number:</label>
-              <input type="text" name="phone-number" id="phoneNumber" />
-              <label htmlFor="category">Category:</label>
-              <select name="category" id="category">
-                  <option value="">(Select one category)</option>
-                  <option value="1">educational</option>
-                  <option value="2">personal</option>
-                  <option value="3">professional</option>
-                  <option value="4">social</option>
-              </select>
-        </fieldset>
+  const [ firstName, setFirstName ] = useState("");
+  const [ lastName, setLastName ] = useState("");
+  const [ email, setEmail ] = useState("");
+  const [ role, setRole ] = useState("");
+  const [ phoneNumber, setPhoneNumber ] = useState("");
+  const [ category, setCategory ] = useState("");
+  const [ bio, setBio ] = useState("");
 
-          <fieldset>
-              <label htmlFor="profile-picture">Upload a profile picture: <input type="file" name="file" id="profile-picture" /></label>
-              <label htmlFor="bio">Provide a bio:</label>
-              <textarea name="bio" id="bio" cols="30" rows="10" placeholder='Write your bio...'></textarea>
-          </fieldset>
-          <input type="submit" value="Submit" />
-        </form>
-    </div>
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      firstName,
+      lastName,
+      email,
+      role,
+      phoneNumber,
+      category,
+      bio
+    };
+
+    const url = "http://127.0.0.1:5555/create_contact";
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    }
+    const response = await fetch(url, options);
+
+    if (response.status !== 201 && response.status !== 200) {
+      const data = await response.json();
+      alert(data.message);
+    } else {
+      alert('Contact added!');
+    }
+  }
+
+  return (
+    <form id="add-contact-form" onSubmit={onSubmit}>
+      <h1>Register a contact</h1>
+      <fieldset>
+          <label htmlFor="firstName">First Name:</label>
+          <input type="text" value={firstName} id="firstName" onChange={(e) => setFirstName(e.target.value)} required />
+
+          <label htmlFor="lastName">Last Name:</label>
+          <input type="text" value={lastName} id="lastName" onChange={(e) => setLastName(e.target.value)} required />
+
+          <label htmlFor="email">Email:</label>
+          <input type="email" value={email} id="email" onChange={(e) => setEmail(e.target.value)} required />
+
+          <label htmlFor="role">Job/Role:</label>
+          <input type="text" value={role} id="role" onChange={(e) => setRole(e.target.value)} required />
+
+          <label htmlFor="phone-number">Phone Number:</label>
+          <input type="text" value={phoneNumber} id="phoneNumber" onChange={(e) => setPhoneNumber(e.target.value)} required />
+      </fieldset>
+
+      <hr />
+
+      <fieldset>
+          <label htmlFor="category">Category:</label>
+          <select name="category" id="category" onChange={(e) => setCategory(e.target.value)}>
+              <option value="">(Select one category)</option>
+              <option value="educational">educational</option>
+              <option value="personal">personal</option>
+              <option value="professional">professional</option>
+              <option value="social">social</option>
+          </select>
+          <label htmlFor="bio">Provide a bio:</label>
+          <textarea name="bio" id="bio" onChange={(e) => setBio(e.target.value)} cols="30" rows="10" placeholder='Write your bio...'></textarea>
+      </fieldset>
+      <input id="submit-btn" type="submit" value="Create" />
+    </form>
   )
 }
 
